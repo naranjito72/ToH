@@ -1,0 +1,29 @@
+<!-- Cuando solo tenemos a wimdstorm-->
+<!--{{ hero }} es solo un dato string!-->
+<!--Ahora debemos hacer saber al navegador que ya es un objeto-->
+<!--
+<h2>{{ heroes[0].name }} Details!</h2>
+
+<div>
+  <span>id:</span> {{ heroes[0].id }}
+</div>
+
+<div> 
+  <label>name:</label> 
+  <input [(ngModel)] = "heroes[0].name" placeholder = "name" />
+</div>
+-->
+<h2>My Heroes</h2>
+<!--
+<div *ngIf="selectedHero">
+    <h2>{{ selectedHero.name | uppercase }} Details</h2>
+    <div><span>id: </span>{{ selectedHero.id }}</div>
+</div>
+-->
+<ul class="heroes">
+  <li [class.selected]="hero === selectedHero"  *ngFor="let hero of heroes" (click)= "onSelect(hero)">
+    <span class="badge" > {{ hero.id }} </span>{{ hero.name }}
+  </li>
+</ul>
+<app-hero-detail [hero]= "selectedHero"></app-hero-detail>
+
